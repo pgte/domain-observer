@@ -1,0 +1,26 @@
+{
+  "name": "domain-observer",
+  "version": "0.0.1",
+  "description": "Observe events happening inside a domain",
+  "main": "index.js",
+  "scripts": {
+    "test": "node tests/observer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:pgte/domain-observer.git"
+  },
+  "keywords": [
+    "domains",
+    "observability"
+  ],
+  "author": "pgte",
+  "dependencies": {
+    "domain-interceptor": "*",
+    "microtime": "0.3.x"
+  },
+  "devDependencies": {
+    "tap": "*"
+  },
+  "license": "MIT"
+}
