@@ -7,7 +7,8 @@ function accepts(ee) {
   return (
     (ee instanceof ClientRequest)  ||
     (ee instanceof ClientRequest2) ||
-    (ee instanceof ClientRequest3)) && ! (ee.client && ee.client.server);
+    (ee instanceof ClientRequest3)) &&
+  ! (ee.client && ee.client.server);
 }
 
 function observe(req, domain) {

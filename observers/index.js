@@ -15,5 +15,4 @@ function observe(ee, domain) {
       break;
     }
   }
-  if (! accepts) console.log('not accepted');
 };
