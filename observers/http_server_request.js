@@ -6,10 +6,12 @@ function accepts(ee) {
 }
 
 function observe(req, domain) {
-  domain.emit('http-server-request-begin', req, microtime.now());
+  var begin = microtime.now();
+  domain.emit('http-server-request-begin', req, begin, 0);
   
   req.once('end', function() {
-    domain.emit('http-server-request-end', req, microtime.now());
+    var end = microtime.now();
+    domain.emit('http-server-request-end', req, end, end - begin);
   });
 }
 

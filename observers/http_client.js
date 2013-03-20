@@ -6,17 +6,21 @@ function accepts(ee) {
 }
 
 function observe(req, domain) {
-  domain.emit('http-client-request-begin', req, microtime.now());
+  var begin = microtime.now();
+  domain.emit('http-client-request-begin', req, begin, 0);
   
   req.once('response', function(res) {
-    domain.emit('http-client-response-begin', res, microtime.now());
+    var responseBegin = microtime.now();
+    domain.emit('http-client-response-begin', res, responseBegin, responseBegin - begin);
     res.once('end', function() {
-      domain.emit('http-client-response-end', res, microtime.now());
+      var responseEnd = microtime.now();
+      domain.emit('http-client-response-end', res, responseEnd, responseEnd - responseBegin);
     });
   });
 
   req.once('finish', function() {
-    domain.emit('http-client-request-end', req, microtime.now());
+    var finish = microtime.now();
+    domain.emit('http-client-request-end', req, finish, finish - begin);
   });
 }
 

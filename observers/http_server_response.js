@@ -6,8 +6,10 @@ function accepts(ee) {
 }
 
 function observe(res, domain) {
+  var begin = microtime.now();
   res.once('finish', function() {
-    domain.emit('http-server-response-end', res, microtime.now());
+    var finish = microtime.now();
+    domain.emit('http-server-response-end', res, finish, finish - begin);
   });
 }
 
