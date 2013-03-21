@@ -1,9 +1,9 @@
+require('domain-id');
+
 var i =
 exports =
 module.exports =
 require('domain-interceptor');
-
-require('domain-id');
 
 var observers = require('./observers');
 
