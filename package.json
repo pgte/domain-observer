@@ -17,7 +17,6 @@
   "author": "pgte",
   "dependencies": {
     "domain-interceptor": "*",
-    "domain-id": "*",
     "microtime": "0.3.x"
   },
   "devDependencies": {

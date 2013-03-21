@@ -1,5 +1,3 @@
-require('domain-id');
-
 var i =
 exports =
 module.exports =
