@@ -1,12 +1,10 @@
 var ClientRequest = require('http').ClientRequest;
-var ClientRequest2 = require('domain-interceptor').httpClientRequest;
+ClientRequest = ClientRequest.__baseClass || ClientRequest;
 var microtime = require('microtime');
 
 function accepts(ee) {
-  return (
-    (ee instanceof ClientRequest)  ||
-    (ee instanceof ClientRequest2)) &&
-  ! (ee.client && ee.client.server);
+  return (ee instanceof ClientRequest) &&
+       ! (ee.client && ee.client.server);
 }
 
 function observe(req, domain) {
